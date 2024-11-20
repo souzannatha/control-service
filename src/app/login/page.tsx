@@ -1,6 +1,17 @@
+"use client";
+
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export function LoginPage() {
+  const router = useRouter();
+
+  function handleLogin(event: React.FormEvent) {
+    event.preventDefault();
+
+    router.push("product-registration");
+  }
+
   return (
     <main className="min-h-screen bg-slate-900 flex justify-center items-center">
       <div className="w-[900px] h-auto flex justify-center items-center bg-slate-800 p-8 rounded-lg shadow-lg">
@@ -31,6 +42,7 @@ export function LoginPage() {
               />
             </div>
             <button
+              onClick={handleLogin}
               type="submit"
               className="w-full mt-4 py-3 bg-indigo-600 text-white font-semibold rounded-md hover:bg-indigo-700 transition"
             >
